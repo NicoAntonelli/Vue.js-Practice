@@ -1,9 +1,10 @@
 const app = new Vue({
     el: "#app",
     data: {
-        titulo: "Nico's Gym",
+        titulo: "Nico's Gym: Notes",
         tareas: [],
-        nuevaTarea: ""
+        nuevaTarea: "",
+        contador: 0
     },
     methods: {
         guardarStorage() {
@@ -31,6 +32,40 @@ const app = new Vue({
         },
         homeLink() {
             window.location.href = "home.html";
+        }
+    },
+    computed: {
+        okButton() {
+
+        },
+        checkTareas() {
+            let amount = this.tareas.length;
+            let completed = 0;
+            this.tareas.forEach(element => {
+                if (element.estado) { completed++; }
+            });
+            return completed/amount*100;
+        },
+        colorBarProgress() {
+            return {
+                'bg-danger': this.checkTareas < 30,
+                'bg-warning': this.checkTareas >= 30 && this.checkTareas < 60,
+                'bg-success': this.checkTareas >= 60,
+            }
+        },
+        colorBarManual() {
+            return {
+                'bg-danger': this.contador < 10,
+                'bg-warning': this.contador >= 10 && this.contador < 25,
+                'bg-info': this.contador >= 25 && this.contador < 50,
+                'bg-primary': this.contador >= 50 && this.contador < 100,
+                'bg-success': this.contador >= 100,
+            }
+        },
+        checkContador() {
+            if (this.contador < 0) { this.contador = 0; }
+            if (this.contador > 100) { this.contador = 100; } 
+            return this.contador;
         }
     },
     created() {
