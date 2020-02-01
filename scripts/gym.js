@@ -1,7 +1,8 @@
 const app = new Vue({
     el: "#app",
     data: {
-        titulo: "Nico's Gym: Notes",
+        titulo: "Nico's Amazing App",
+        subtitulo: "Nico's Gym: Notes",
         tareas: [],
         nuevaTarea: "",
         contador: 0
@@ -30,9 +31,6 @@ const app = new Vue({
             this.guardarStorage();
             console.log(`Se ha eliminado correctamente`);
         },
-        homeLink() {
-            window.location.href = "home.html";
-        }
     },
     computed: {
         okButton() {

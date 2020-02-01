@@ -11,10 +11,10 @@
     <title>Nico's GYM</title>
 </head>
 <body>
-    <div id="app" class="container m-4">
-        <h1>{{titulo}}</h1>
-        <button class="btn btn-dark mb-4" @click="homeLink">Volver a Home</button>
+    <div id="app" class="container m-3 mt-4">
+        <principal></principal>
 
+        <h2>{{subtitulo}}</h2>
         <!-- v-on:keyup.enter="agregarTarea" -->
         <input type="text" class="form-control my-3" v-model="nuevaTarea" @keyup.enter="agregarTarea">
         <button class="btn btn-primary" @click="agregarTarea">Agregar Actividad</button>
@@ -68,6 +68,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="scripts/components/principal.js"></script>
     <script src="scripts/gym.js"></script>
 </body>
 </html>
