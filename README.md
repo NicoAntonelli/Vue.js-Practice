@@ -1,2 +1,3 @@
 # Vue.js-Practice
-Code practice of the course I am doing with Vue.js in 2020
+Code practice with Vue.js
+..Part experiments, part course-videos I found on YT
