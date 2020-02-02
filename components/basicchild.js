@@ -9,25 +9,21 @@ Vue.component("basicchild", {
             <button class="btn btn-danger" @click="disminuir(1)">-</button>
             <button class="btn btn-danger" @click="disminuir(2)">--</button>
             <hr>
-            <button class="btn btn-warning" @click="obtenerCursos">Obtener Cursos desde JSON</button>
             <ul class="mt-3 px-0">
                 <li v-for="item of cursos"><div class="alert alert-info mb-1" role="alert">{{item.nombre}}</div></li>
             </ul>
-        </div>`,
+            <div class="alert alert-warning" role="alert">Info obtenida desde JSON</div>
+            </div>`,
+            // <button class="btn btn-warning" @click="obtenerCursos">Obtener Cursos desde JSON</button>
     methods: {
         ...Vuex.mapMutations(['aumentar', 'disminuir']),
         ...Vuex.mapActions(['obtenerCursos']),
-        printCursos: async function() {
-            // this.cursos = await this.$dispatch.obtenerCursos();
-            // obtenerCursos();
-            // DOESN'T WORK
-        }
     },
     computed: {
         // numero() { return store.state.numero }
         ...Vuex.mapState(['numero', 'cursos']),
     },
     mounted() {
-        this.printCursos();
+        this.obtenerCursos();
     },
 });

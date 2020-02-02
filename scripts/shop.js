@@ -22,13 +22,6 @@ const app = new Vue({
             this.nuevaFrutaNombre = "";
             this.nuevaFrutaCantidad = 0;
         },
-        validarCantidad(cantidad, sum) {
-            if (sum) { cantidad++; } else { cantidad--; }
-            if (cantidad < 0) { cantidad = 0; }
-            if (!Number.isInteger(cantidad)) { cantidad = 0; }
-            return cantidad;
-            // Solo funciona para los botones... investigar Nested Computeds
-        },
     },
     computed: {
         sumarFrutas() {
@@ -40,9 +33,20 @@ const app = new Vue({
         },
     },
     watch: {
+        // Positivity and Integer Validation
         nuevaFrutaCantidad() {
             if (this.nuevaFrutaCantidad < 0) { this.nuevaFrutaCantidad = 0; }
             if (!Number.isInteger(this.nuevaFrutaCantidad)) { this.nuevaFrutaCantidad = 0; }
+        },
+        // Positivity and Integer Validation
+        frutas: {
+            handler() {
+                this.frutas.forEach(fruta => {
+                    if (fruta.cantidad < 0) { fruta.cantidad = 0; }
+                    if (!Number.isInteger(fruta.cantidad)) { fruta.cantidad = 0; }
+                });
+            },
+            deep: true
         }
-    },
+    }
 });
