@@ -17,8 +17,22 @@
         <h2>{{subtitulo}}</h2>
         <bienvenido></bienvenido>
         <!-- <div class="text-white bg-danger p-3"></div> -->
-        <div class="text-white" :class="['p-3', fondo]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptas iure, quisquam laborum incidunt voluptate! Odio culpa numquam, dolor earum eius aut similique tenetur nobis tempora dolores aliquam pariatur id!
+        <div class="text-white" :class="['p-3', fondo, {'text-dark' : fondo=='bg-white' || fondo=='bg-light'}]">
+            <div class="row">
+                <div class="col">bg-primary</div>
+                <div class="col">bg-secondary</div>
+                <div class="col">bg-info</div>
+            </div>
+            <div class="row">
+                <div class="col">bg-success</div>
+                <div class="col">bg-danger</div>
+                <div class="col">bg-warning</div>
+            </div>
+            <div class="row">
+                <div class="col">bg-light</div>
+                <div class="col">bg-dark</div>
+                <div class="col">bg-white</div>
+            </div>
         </div>
         <input type="text" class="form-control my-3" v-model="fondo">
         <div class="text-white p-3" :class="{'bg-info' : color, 'bg-success' : !color}">
@@ -30,17 +44,26 @@
         <h4><b>Invertido: </b>{{mensajeInvertido}}</h4>
         <input type="text" class="form-control" v-model="mensaje">
         <hr>
+        <basicparent></basicparent>
+        <hr>
         <h3>Peligro!</h3>
         <button class="btn btn-danger" @click="destruir()">DESTRUIR INSTANCIA VUE</button>
     </div>
 
     <!-- Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- Components -->
-    <script src="scripts/components/principal.js"></script>
-    <script src="scripts/components/bienvenido.js"></script>
-    <script src="scripts/components/bienvenidomensaje.js"></script>
+    <!-- VueX CDN -->
+    <script src="https://unpkg.com/vuex@3.1.2/dist/vuex.js"></script>
+    <!-- Basic Components -->
+    <script src="components/principal.js"></script>
+    <script src="components/bienvenido.js"></script>
+    <script src="components/bienvenidomensaje.js"></script>
+    <!-- Components with VueX -->
+    <script src="components/basicparent.js"></script>
+    <script src="components/basicchild.js"></script>
+    <!-- VueX Store -->
+    <script src="scripts/storevuex.js"></script>
     <!-- Vue Instance and Methods -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/home.js"></script>
 </body>
 </html>

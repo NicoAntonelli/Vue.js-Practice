@@ -9,7 +9,7 @@ Vue.component("bienvenidomensaje", {
         }
     },
     mounted() {
-        // For Parent Component
+        // For Parent Component (Without VueX)
         this.$emit("miRespuesta", this.info);
     },
     props: ['texto']

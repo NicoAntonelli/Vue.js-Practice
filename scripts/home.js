@@ -1,5 +1,7 @@
 const app = new Vue({
     el: "#app",
+    // store: store,
+    store,
     data: {
         subtitulo: "Testing Zone (Home)",
         fondo: "bg-danger",
